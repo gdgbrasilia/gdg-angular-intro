@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyAl6ZpxyTjf7RI4tjJzXW6ueOVGz2YOsQ0',
+    authDomain: 'meetup-gdg-brasilia.firebaseapp.com',
+    databaseURL: 'https://meetup-gdg-brasilia.firebaseio.com',
+    projectId: 'meetup-gdg-brasilia',
+    storageBucket: 'meetup-gdg-brasilia.appspot.com',
+    messagingSenderId: '983096054106'
+  }
 };
 
 /*
