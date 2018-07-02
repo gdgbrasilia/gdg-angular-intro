@@ -24,5 +24,4 @@ export class ChatFormComponent implements OnInit {
     this.message.setValue('');
 
   }
-
 }
