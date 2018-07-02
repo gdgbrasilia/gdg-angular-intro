@@ -1,6 +1,10 @@
-<form>
-  <mat-form-field class="">
-    <input matInput [formControl]="message" (keydown.enter)="onSubmit()" />
-  </mat-form-field>
-  <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">Send</button>
-</form>
+<input
+  class="chatInput"
+  [formControl]="message"
+  (keydown.enter)="onSubmit()"/>
+<button
+  color="primary"
+  class="chatButton"
+  (click)="onSubmit()">
+  Send
+</button>
