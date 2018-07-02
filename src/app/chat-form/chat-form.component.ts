@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {ChatService} from '../chat.service';
+import {ChatService} from '../services/chat.service';
 
 @Component({
   selector: 'app-chat-form',
@@ -9,7 +9,7 @@ import {ChatService} from '../chat.service';
 })
 export class ChatFormComponent implements OnInit {
 
-  message = new FormControl('', {updateOn: 'change'});
+  message = new FormControl();
 
   constructor(
     private chat: ChatService
@@ -17,12 +17,12 @@ export class ChatFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.message.valueChanges.subscribe(text => console.log(text));
   }
 
-  onSubmit(inputMessage?: string): void {
-    const message = inputMessage || this.message.value;
-    this.chat.sendMessage(message);
+  onSubmit(): void {
+    this.chat.sendMessage(this.message.value);
+    this.message.setValue('');
+
   }
 
 }

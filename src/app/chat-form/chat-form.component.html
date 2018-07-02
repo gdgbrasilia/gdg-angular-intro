@@ -1,6 +1,6 @@
 <form>
   <mat-form-field class="">
-    <input matInput #input [formControl]="message" (keydown.enter)="onSubmit(input.value)" />
+    <input matInput [formControl]="message" (keydown.enter)="onSubmit()" />
   </mat-form-field>
   <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">Send</button>
 </form>

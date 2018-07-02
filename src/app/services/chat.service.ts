@@ -1,13 +1,11 @@
 import {Injectable} from '@angular/core';
-import {ChatMessageModel} from './models/chat-message.model';
-import {FirebaseListObservable} from 'angularfire2/database-deprecated';
-import {Observable, Subject} from 'rxjs';
+import {ChatMessageModel} from '../models/chat-message.model';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
 import * as _ from 'lodash';
 import * as moment from 'moment';
-import {filter, switchMap} from 'rxjs/operators';
-import {AngularFireList, QueryFn} from 'angularfire2/database/interfaces';
+import {filter} from 'rxjs/operators';
+import {AngularFireList} from 'angularfire2/database/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +46,7 @@ export class ChatService {
 
 
   get chatMessages(): AngularFireList<ChatMessageModel | ChatMessageModel[]> {
+    console.log('here');
     return this.db.list('messages', ref => ref.limitToFirst(25).orderByKey());
 
   }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {ChatService} from '../services/chat.service';
 
 @Component({
   selector: 'app-feed',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
-  constructor() { }
+  feed = this.chatService.chatMessages.valueChanges();
+
+  constructor(
+    private chatService: ChatService
+  ) {
+  }
 
   ngOnInit() {
   }
-
 }
