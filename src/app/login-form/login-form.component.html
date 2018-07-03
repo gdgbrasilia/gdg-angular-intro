@@ -1,3 +1,28 @@
-<p>
-  login-form works!
-</p>
+<div class="flex-container">
+  <div class="row-flex">
+    <div class="center">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Login de usuário</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form class="example-form column">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="E-mail">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Insira sua senha" [type]="!hide ? 'password' : 'text'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="row-flex center">
+            <button mat-button mat-raised-button color="primary">Login</button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

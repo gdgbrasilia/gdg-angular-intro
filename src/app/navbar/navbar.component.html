@@ -1,3 +1,22 @@
-<p>
-  navbar works!
-</p>
+<div class="navBar">
+    <div id="logo"></div>
+  <div class="heading"><a routerLink="/"></a></div>
+  <div class="links">
+    <span>
+      <a *ngIf="!(user| async)?.uid" (click)="login()" href="#">Login</a>
+    </span>
+
+    <span>
+      <a *ngIf="!(user| async)?.uid"  routerLink="/signup" href="#">Sign Up</a>
+    </span>
+
+    <span>
+      <a id="userEmail"  *ngIf="!(user| async)?.uid" href="#">Olá  {{email}}</a>
+    </span>
+
+    <span>
+      <a *ngIf="!(user| async)?.uid" (click)="logout()" href="#">Logout</a>
+    </span>
+
+  </div>
+</div>

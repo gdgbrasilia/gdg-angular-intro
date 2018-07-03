@@ -3,8 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MyTableComponent} from './my-table/my-table.component';
-import {AppNavBarComponent} from './app-nav-bar/app-nav-bar.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {ChatFormComponent} from './chat-form/chat-form.component';
 import {ChatroomComponent} from './chatroom/chatroom.component';
@@ -29,8 +27,6 @@ import {MaterialModule} from './shared/material.module';
 @NgModule({
   declarations: [
     AppComponent,
-    MyTableComponent,
-    AppNavBarComponent,
     ChatFormComponent,
     ChatroomComponent,
     MessageComponent,
