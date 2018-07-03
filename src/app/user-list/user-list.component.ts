@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserModel} from '../models/user.model';
 import {ChatService} from '../services/chat.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-user-list',
@@ -16,7 +17,9 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.chatService.users
-      .subscribe((users: UserModel[]) => this.users = users);
+      .subscribe((users: UserModel[]) => {
+        this.users = users.filter(user => _.isObject(user));
+      });
   }
 
 }

@@ -23,6 +23,7 @@ export class AuthService {
 
   login(user: UserModel) {
     return from(this.firebaseAuth.auth.signInWithEmailAndPassword(user.email, user.password))
+      .pipe(tap((userFromResponse: firebase.auth.UserCredential) => this.authState = userFromResponse))
       .pipe(tap(() => this.setUser(user, 'online')));
   }
 
@@ -36,6 +37,7 @@ export class AuthService {
   private setUser(user: UserModel, status: string): void {
     const path = `users/${this.currentUserId}`;
     user.status = status;
+    console.log('Path', path, user);
     this._user.next(user);
     this.db.object(path).update(user);
 
