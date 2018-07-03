@@ -23,8 +23,7 @@ export class AuthService {
 
   login(user: UserModel) {
     return from(this.firebaseAuth.auth.signInWithEmailAndPassword(user.email, user.password))
-      .pipe(tap(() => this.setUser(user, 'online')))
-      .pipe(tap(() => this.router.navigate(['chat'])));
+      .pipe(tap(() => this.setUser(user, 'online')));
   }
 
   signup(user: UserModel): Observable<any> {
@@ -48,10 +47,12 @@ export class AuthService {
   }
 
   get currentUserId(): string {
-    return this.authState !== null ? this.authState.user.uid : '';
+    console.log(this.authState);
+    return this.authState !== null && this.authState !== undefined ? this.authState.user.uid : '';
   }
 
   logout(): void {
+    this.setUser({}, 'offline');
     this.firebaseAuth.auth.signOut();
     this.router.navigate(['login']);
   }
