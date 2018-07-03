@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  private loginForm: FormGroup;
+  loginForm: FormGroup;
+  hide: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,8 +30,6 @@ export class LoginFormComponent implements OnInit {
 
   login(): void {
     const user = this.loginForm.value;
-    const emptyFunction = () => {
-    };
 
     this.authService.login(user)
       .subscribe(

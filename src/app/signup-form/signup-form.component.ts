@@ -12,7 +12,8 @@ import {MatSnackBar} from '@angular/material';
 })
 export class SignupFormComponent implements OnInit {
 
-  private formGroup: FormGroup;
+  formGroup: FormGroup;
+  hide: any;
 
   constructor(
     private authService: AuthService,
