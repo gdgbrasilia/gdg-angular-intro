@@ -1,0 +1,49 @@
+<div class="flex-container">
+  <div class="row-flex">
+    <div class="center">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Cadastro de usuários</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form class="example-form column" [formGroup]="formGroup" >
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Nome de Exibição" formControlName="display">
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Nome de usuário" formControlName="username">
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="E-mail" formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Senha" [type]="!hide ? 'password' : 'text'" formControlName="password">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Confirmação de senha" [type]="!hide ? 'password' : 'text'"
+                     formControlName="confirm_password">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="row-flex center">
+            <button mat-button mat-raised-button type="submit"
+                    [disabled]="formGroup.invalid"
+                    (click)="onSubmit()"
+                    [class.invalid]="formGroup.invalid" color="primary">Login
+            </button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

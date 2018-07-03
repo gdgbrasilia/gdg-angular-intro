@@ -1,0 +1,14 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{chatMessage.userName}}</mat-card-title>
+    <mat-card-subtitle>
+      {{chatMessage.timeSent | date:'medium'}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{chatMessage.message}}
+    </p>
+  </mat-card-content>
+</mat-card>
